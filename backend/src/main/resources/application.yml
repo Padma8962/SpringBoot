@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+  ai:
+    openai:
+      api-key: ${GROQ_API_KEY}
+      base-url: https://api.groq.com/openai
+      audio:
+        transcription:
+          base-url: https://api.groq.com/openai
+          api-key: ${GROQ_API_KEY}
+          options:
+            model: whisper-large-v3-turbo
+            response-format: text
+
+app:
+  cors:
+    allowed-origins: http://localhost:5173
